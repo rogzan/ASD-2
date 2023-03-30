@@ -1,0 +1,27 @@
+Zaimplementuj listę z przeskokami (skip-list) poprzez stworzenie klasy zawierającej atrybut reprezentujący głowę listy (np. head) oraz metody:
+konstruktor z parametrem określającym maksymalną 'wysokość' elementu listy - powinien tworzyć pusty element listy, którego tablica wskazań na następne elementy będzie reprezentowała tablicę głów list na poszczególnych poziomach, ten element ma zostać przypisany do atrybutu head 
+search - wyszukująca i zwracająca wartość odpowiadającą podanemu kluczowi (lub None) 
+insert - wstawiająca daną wg podanego klucza - podczas szukania miejsca do wstawienia klucza powinna tu być tworzona lista  (tablica) zawierająca poprzedniki  znalezionego elementu  na każdym poziomie (znaleziony element to ten, którego klucz jest większy od klucza wstawianego elementu); dla poziomów, których znaleziony element nie posiada  w tablicy poprzedników powinna być wpisana głowa listy (np. head).
+remove - usuwająca daną o podanym kluczu 
+__str__ -  wypisującą listę w postaci par (klucz:wartość) (należy wypisać 'poziom 0' listy) 
+Elementy listy również powinny być zaimplementowane jako klasa z atrybutami przechowującymi: klucz,  wartość (jakąś daną), liczbę poziomów oraz listę (tablicę) ze wskazaniami na następny element o rozmiarze równym liczbie poziomów.
+Do tworzenia elementów listy będzie przydatna funkcja/metoda losująca liczbę poziomów (jako metoda nie musi mieć parametru maxLevel, p zaś będziemy ustawiali na 0.5): 
+def randomLevel(p, maxLevel):
+  lvl = 1    
+  while random() < p and lvl <maxLevel: 
+        lvl = lvl + 1
+  return lvl
+  
+W main-ie sprawdź działanie zaimplementowanej listy przez: 
+utworzenie pustej listy
+użycie insert do wpisana do niej 15 danych (niech kluczami będą  kolejne liczby od 1, a wartościami - kolejne litery),
+wypisanie listy
+użycie search do wyszukania (i wypisania) danej o kluczu 2
+użycie insert do nadpisania wartości dla klucza 2 literą 'Z'
+użycie search do wyszukania (i wypisania) danej o kluczu 2
+użycie delete do usunięcia danych o kluczach 5, 6, 7
+wypisanie tablicy
+użycie insert do wstawienia  danej 'W' o kluczu 6 
+wypisanie tablicy
+
+Dla końcowego sprawdzenia ponownie wykonaj powyższe operacje, ale tym razem wpisując 15 wartości w odwrotnej kolejności - od 15 do 1.

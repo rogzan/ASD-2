@@ -1,0 +1,44 @@
+Algorytm Prima jest prosty, zachłanny i co “dziwne/ciekawe” poprawny :). Zaczynamy od wybranego wierzchołka, dodajemy go do naszego drzewa, szukamy krawędzi o najmniejszej wadze łączącej wierzchołek z drzewa z wierzchołkiem “poza drzewem”, dodajemy krawędź oraz wierzchołek, do którego prowadzi do drzewa i tak aż nam się skończą wierzchołki.
+Bardziej formalnie zapisany algorytm Prim-MST(G):
+    Zaczynamy z arbitralnie wybranego wierzchołka s grafu G
+
+    Dopóki (są wierzchołki G nie w drzewie Tprim)
+
+            Wybierz krawędź z najmniejszą wagą pomiędzy wierzchołkiem należącym do drzewa i tym spoza
+
+            Dodaj wybraną krawędź i wierzchołek do drzewa Tprim
+
+
+Bazowa implementacja (“naiwna”) ma złożoność O(mn), gdzie m - liczba krawędzi, n - liczba wierzchołków. Wynika to z punktu “wybierz krawędź...”, gdzie za każdym razem przeglądamy wszystkie krawędzie - oczywiście proszę pamiętać, że jest to “górne ograniczenie”.
+
+My zastosujemy nieco bardziej zaawansowany (sprytny) wariant, który charakteryzuje się złożonością O(n2) - za książką The Algorithms Design Manual Steven S. Skiena. 
+Ulepszenie polega na przechowywaniu informacji o krawędziach o najmniejszej wadze pomiędzy wierzchołkami z drzewa i nie z drzewa. Warto zauważyć, że takie uaktualnienie jest wykonywane w każdej iteracji tylko dla danego wierzchołka.
+
+
+Nasza implementacja:
+
+potrzebujemy trzy dodatkowe listy: intree - czy wierzchołek jest w drzewie, distance - minimalna waga krawędzi dla danego wierzchołka, parent - “rodzic”/poprzedni wierzchołek w drzewie (do opisu krawędzi). Rozmiar n, inicjalizacja  odpowiednio: 0, duża liczba (np. float('inf')), -1.
+
+potrzebujemy też struktury na nasze drzewo (MST) - proponuje się utworzyć graf o identycznych wierzchołkach jak wejściowy, ale na razie bez krawędzi,
+
+startujemy z dowolnego wierzchołka,
+
+całość działa w pętli while wykonywanej dopóki bieżący wierzchołek v jest poza drzewem tj. intree[v] == 0,
+
+dodajemy wierzchołek do drzewa tj. intree[v]=1,
+
+przeglądamy otoczenie aktualnie rozważanego wierzchołka:
+
+sprawdzamy, czy waga krawędzi jest mniejsza od tej zapisanej w tablicy distance oraz czy wierzchołek nie jest już w drzewie,
+
+jeśli warunek jest spełniony, to uaktualniamy tablicę distance oraz zapamiętujemy rodzica (parent),
+
+szukamy kolejnego wierzchołka, który dodamy do drzewa:
+
+musimy wykonać przegląd po wszystkich wierzchołkach (technicznie po tych, które nie są w drzewie),
+
+szukamy takiego, który nie jest w MST oraz ma najmniejszą wartość w tablicy distance - czyli poszukiwana krawędź o najmniejszej wadze,
+
+dodajemy do drzewa MST krawędź - technicznie dwie krawędzie - tu używamy informacji z listy parent,
+
+warto też wyznaczyć sumę krawędzi tworzących drzewo - “długość” drzewa rozpinającego.

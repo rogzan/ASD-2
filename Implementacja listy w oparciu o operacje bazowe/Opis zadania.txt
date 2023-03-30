@@ -1,0 +1,17 @@
+Lista w ujęciu rekurencyjnym może posiadać następujące operacje bazowe:
+• nil( ) - stworzenie pustej listy
+• cons(el, list)  - stworzenie listy przez dodanie elementu na początek istniejącej listy
+• first(list) - zwrócenie wartości  pierwszego elementu
+• rest(list) - zwrócenie listy bez pierwszego elementu
+
+Zaimplementuj klasyczną listę wiązaną z takimi samymi funkcjonalnościami  jak w zadaniu poprzednim, ale wykorzystując jedynie powyższy interfejs. Czyli:
+nie wolno odwoływać się do klasy opisującej element listy, zamiast metod będą funkcje.
+Wyjątkiem będzie funkcja create, której w zadaniu pierwszym nie było - odpowiadał jej 'konstruktor' klasy. Tu będzie to funkcja jednolinijkowa:
+def create( ): 
+    return nil( )
+
+Część pozostałych funkcji też będzie 'jednolinijkowych' (chyba, że zostaną uzupełnione o wyrzucanie wyjątku w przypadku  np. próby operacji na pustej liście). Za to metody, które w zadaniu pierwszym wykorzystywały iteracje tu muszą być funkcjami rekurencyjnymi.
+Przykładowo - dodanie na koniec wymaga rekurencyjnego dojścia do końca listy, dołożenie tam wstawianego elementu funkcją cons i odbudowania listy w powrotach z rekurencji również funkcją cons). 
+Pozostałe funkcje rekurencyjne będą miały podobną konstrukcję.
+
+Przetestuj funkcje implementujące klasyczną listę analogicznie jak w zadaniu pierwszym (w zasadzie powinien to być taki sam main, tylko zamiast odwołań do metod w klasie powinny być wywołania tak samo nazywających się funkcji)

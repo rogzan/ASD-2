@@ -1,0 +1,33 @@
+Zaimplementuj w języku Python listę wiązaną jednokierunkową. Niech będzie ona zaimplementowana jako klasa zawierająca pole head.
+Pole head należy rozumieć jako wskazanie na pierwszy element listy.
+
+Zaimplementuj poniższe funkcjonalności:
+Transformatory:
+• create - tę rolę będzie pełnił 'konstruktor' tworzący obiekt reprezentujący listę z polem head ustawionym na None
+• destroy - usunięcie/zniszczenie całej listy - tu też jest łatwo - wystarczy ustawić head na None, a Python sam zwolni pamięć :)
+• add - metoda dodająca na początek listy 
+• remove - metoda usuwająca element z początku listy
+Obserwatory:
+• is_empty - metoda zwracająca True dla pustej listy
+• length - metoda zliczająca liczbę elementów 
+• get - metoda zwracająca pierwszy element (tylko dane, bez 'wskaźnika' - wewnętrzna reprezentacja ma być ukryta)
+
+ a także metody pozwalające:
+wypisać listę (nie musi to być __str__ tylko wypisanie listy na ekran, zakładając, że dane z elementu listy da się wypisać print-em)
+dodać element na koniec listy
+usunąć element z końca
+
+
+Dodatkowo uzupełnij klasę o metody:
+take(n) - metoda tworząca nową listę wiązaną z n pierwszych elementów listy (dla n większego od rozmiaru brane są wszystkie elementy)
+drop(n) - metoda tworząca nową listę wiązaną z elementów podanej listy z pominięciem jej pierwszych n elementów (dla n większego od rozmiaru zwracana jest pusta lista)
+Uwaga - kolejność elementów w nowych listach nie powinna zostać odwrócona
+
+W main-ie sprawdź działanie zaimplementowanej klasy przez utworzenie z poniższej pythonowej listy krotek z danymi o uczelniach:
+[('AGH', 'Kraków', 1919),
+('UJ', 'Kraków', 1364),
+('PW', 'Warszawa', 1915),
+('UW', 'Warszawa', 1915),
+('UP', 'Poznań', 1919),
+('PG', 'Gdańsk', 1945)]
+listy wiązanej, przy czym należy użyć wszystkich zaimplementowanych metod.

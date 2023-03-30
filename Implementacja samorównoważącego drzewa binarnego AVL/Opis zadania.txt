@@ -1,0 +1,42 @@
+Zaimplementuj w języku Python drzewo AVL przerabiając program z poprzedniego zadania (np. przez dziedziczenie). Klasa reprezentująca węzeł drzewa powinna zawierać dodatkowe pole określające współczynnik wyważenia (lub pola pamiętające wysokość poddrzew). Klasa reprezentująca drzewo powinna mieć zmodyfikowane metody dodawania i usuwania węzłów (szczegóły poniżej).
+
+Drzewo AVL zachowuje własności BST i posiada dodatkową cechę, która określa uporządkowanie węzłów w określony sposób. Każdy węzeł posiada wspólczynnik wyważenia, który jest równy różnicy wysokości lewego i prawego poddrzewa. Może wynosić 0, +1 lub -1. Po wykonaniu operacji dodawania lub usuwania węzłów odbywa się określona operacja rotacji węzłów, która przywraca zrównoważenie drzewa binarnego.
+
+Zaimplementuj funkcjonalności takie jak w drzewie BST w poprzednim zadaniu. Należy jednak tym razem przy dodawaniu i usuwaniu węzłów uwzględnić równoważenie drzewa. Przykładowo - jeśli węzeł jest dodany do lewego rozgałęzienia to współczynnik wyważenia jest zwiększany o  1, a jeśli do prawego zmniejszany o 1 (tak przyjęto w poniższym przykładzie, ale kwestia kiedy stosować -1 a kiedy +1 jest umowna). W przypadku braku zrównoważenia drzewa AVL (współczynnik mniejszy od -1 lub większy od 1) konieczna jest odpowiednia rotacja odpowiednich węzłów. W tym celu należy zaimplementować funkcje, które będą realizować rotację w lewo oraz rotację w prawo.  
+
+Będą one przydatne w uwzględnieniu czterech przypadków:
+pojedyczna rotacja LL (ang. left-left)
+pojedyncza rotacja RR (ang. right-right)
+podwójna rotacja RL (ang. right-left)
+podwójna rotacja LR (ang. left-right)
+Oznaczenia RR, LL, RL i LR określają sposób połączenia węzłów przed wykonaniem rotacji.
+
+W przypadku braku zrównoważenia drzewa AVL konieczna jest odpowiednia rotacja konkretnych węzłów.
+
+Współczynnik wyważenia korzenia jest mniejszy od zera, więc wymaga rotacji w lewo. Dodatkowo sprawdzany jest współczynnik wyważenia prawego dziecka. Jeśli dziecko ma współczynnik wyważenia większy od zera (dłuższa lewa gałąź) to rotuj w prawo względem dziecka a następnie w lewo względem korzenia.
+
+Podczas aktualizacji współczynnika wyważenia możliwe jest wywoływanie funkcji zwracającej wysokość poddrzewa (jest to opcja nieefektywna obliczeniowo, lecz dozwolona do tego zadania). 
+*Dla ambitnych - aktualizacja współczynnika wyważenia bez wywoływania funkcji zwracajacej wysokość poddrzewa (dodanie pola pamiętającego wysokość drzewa).
+
+
+
+W main-ie sprawdź działanie zaimplementowanego drzewa przez:
+
+utworzenie pustego drzewa BST
+dodanie kolejno elementy klucz:wartość -- {50:'A', 15:'B', 62:'C', 5:'D', 2:'E', 1:'F', 11:'G', 100:'H', 7:'I', 6:'J', 55:'K', 52:'L', 51:'M', 57:'N', 8:'O', 9:'P', 10:'R', 99:'S', 12:'T'} tworząc drzewo o podanej strukturze, jak na rysunku: 
+
+wyświetl drzewo 2D
+wyświetl zawartość drzewa jako listę od najmniejszego do największego klucza w formie klucz:wartość
+wyszukaj element o kluczu 10 i wypisz wartość
+usuń element o kluczu 50
+usuń element o kluczu 52
+usuń element o kluczu 11
+usuń element o kluczu 57
+usuń element o kluczu 1
+usuń element o kluczu 12
+dodaj element o kluczu 3:AA
+dodaj element o kluczu 4:BB
+usuń element o kluczu 7
+usuń element o kluczu 8
+wyświetl drzewo 2D
+wyświetl zawartość drzewa jako listę od najmniejszego do największego klucza w formie klucz:wartość

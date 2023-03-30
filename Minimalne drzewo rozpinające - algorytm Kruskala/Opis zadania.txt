@@ -1,0 +1,17 @@
+Implementacja algorytmu Kruskala:
+
+tworzymy graf testowy (podobnie jak w podstawowym zadaniu), wykorzystujemy rozwijaną strukturę - można przenieść do osobnego pliku,
+
+pobieramy listę krawędzi i sortujemy ją - tym razem malejąco,
+
+tworzymy strukturę Union-Find o takiej liczbie wierzchołków jak mamy w grafie - tu ew. może być potrzebne dodanie prostej funkcji do klasy opisującej graf,
+
+w pętli po liście krawędzi:
+
+pobieramy kolejną krawędź i sprawdzamy, czy wierzchołki są w tym samym pod-zbiorze,
+
+jeśli nie, to łączymy oba pod-drzewa.
+
+
+Uwaga. Należy zaimplementować “przekodowanie” etykiet z grafu (duże litery alfabetu) na liczby - np. wykorzystać wartość kodu ASCII. Sprawdźmy, czy otrzymaliśmy poszukiwaną listę krawędzi.
+

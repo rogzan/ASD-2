@@ -1,0 +1,39 @@
+Zaimplementuj w języku Python drzewo binarne BST. Niech będzie zaimplementowane za pomocą dwóch klas: pierwsza klasa zawiera pole root wskazujące na korzeń drzewa (ang. root node), druga klasa reprezentuje węzeł drzewa i zawiera cztery pola: klucz, wartość oraz wskaźniki na dwa węzły dzieci (ang. child node) - prawe i lewe rozgałęzienie.
+
+Zaimplementuj poniższe funkcjonalności:
+konstruktor - tworzy obiekt reprezentujący drzewo z polem root ustawionym na None
+search - wyszukująca i zwracająca wartość odpowiadającą podanemu kluczowi (lub None)
+insert - wstawiająca daną wg podanego klucza, jeżeli element o takim kluczu istnieje, jego wartość powinna zostać nadpisana (funkcja pamięta poprzednika, patrz wykład)
+delete -  usuwająca daną o podanym kluczu
+print - wypisująca zawartość drzewa jako listę od najmniejszego do największego klucza w formie klucz:wartość
+height - metoda zwracająca wysokość drzewa od podanego węzła do węzła nieposiadającego kolejnych potomków (leaf node)  - najdłuższa ścieżka w drzewie
+
+Funkcja search wykonuje wyszukiwanie elementu w drzewie na podstawie klucza w wersji rekurencyjnej.
+Funkcja insert tworzy kolejne elementy drzewa na podstawie podanego klucza, prawe rozgałęzienie zawiera klucze większe niż klucz w węźle rodzic (parent node), lewe rozgałęzenie zawiera klucze mniejsze niż klucz w węźle rodzic.
+
+Funkcja delete usuwa element drzewa na podstawie podanego klucza. Należy uwzględnić trzy przypadki:
+usunięcie węzła, który nie posiada węzłów dzieci (child nodes)
+usunięcie węzła z jednym dzieckiem 
+usunięcie węzła, który posiada dwa węzły dzieci - usuwany węzeł zastępujemy minimalnym kluczem z prawego poddrzewa (ang. right subtree) - successor node
+
+W main-ie sprawdź działanie zaimplementowanego drzewa przez:
+
+utworzenie pustego drzewa BST
+dodanie kolejno elementy klucz:wartość -- {50:'A', 15:'B', 62:'C', 5:'D', 20:'E', 58:'F', 91:'G', 3:'H', 8:'I', 37:'J', 60:'K', 24:'L'}.
+wyświetl drzewo 2D
+wyświetl zawartość drzewa jako listę od najmniejszego do największego klucza w formie klucz:wartość
+znajdź klucz 24 i wypisz wartość
+zaktualizuj wartość "AA" dla klucza 20
+dodaj element 6:M
+usuń element o kluczu 62
+dodaj element 59:N
+dodaj element 100:P
+usuń element o kluczu 8
+usuń element o kluczu 15
+wstaw element 55:R
+usuń element o kluczu 50
+usuń element o kluczu 5
+usuń element o kluczu 24
+wypisz wysokość drzewa
+wyświetl zawartość drzewa jako listę od najmniejszego do największego klucza w formie klucz:wartość
+wyświetl drzewo 2D
